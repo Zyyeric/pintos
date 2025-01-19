@@ -2,7 +2,10 @@
 #define DEVICES_TIMER_H
 
 #include <round.h>
+#include <stdbool.h>
 #include <stdint.h>
+#include <list.h>
+#include <debug.h>
 
 /** Number of timer interrupts per second. */
 #define TIMER_FREQ 100
@@ -25,5 +28,7 @@ void timer_udelay (int64_t microseconds);
 void timer_ndelay (int64_t nanoseconds);
 
 void timer_print_stats (void);
+
+bool compare_wake_up(const struct list_elem *a, const struct list_elem *b, void *aux UNUSED);
 
 #endif /**< devices/timer.h */
